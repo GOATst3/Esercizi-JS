@@ -1,19 +1,19 @@
 //es5
 function getKeys(obj) {
-  let key=[];
-  for (const property in obj){
-    key.push(property+": "+obj[property]);
+  let keys=[];
+  for (const key in obj){
+    keys.push(key);
   }
-  return key;
+  return keys;
 }
 
 //es6
 function getKeys1(obj) {
-  let key1=[];
-  for (let [key, value] of Object.entries(obj)) {
-    key1.push(key+": "+ value);
+  let keys=[];
+  for (let [key] of Object.entries(obj)) {
+    keys.push(key);
   }
-  return key1
+  return keys;
 }
 
 const person = {
@@ -28,3 +28,4 @@ const keys = getKeys(person);
 const keys1 = getKeys1(person);
 console.log(keys);
 console.log(keys1);
+

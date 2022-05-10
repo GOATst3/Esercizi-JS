@@ -1,5 +1,5 @@
 function adultFilter(persons) {
-  let adults;
+  let adults=[];
   for (let i = 0; i < persons.length; i++) {
     persons[i].age>=18 && adults.push(persons[i])
   }

@@ -1,5 +1,9 @@
 function nicknameMap(persons) {
-  return persons.filter(persons=> persons.age>=18)
+  let arr=[]
+  for (let i = 0; i < persons.length; i++) {
+    arr.push(persons[i].name+'-'+persons[i].age)
+  }
+  return arr;
 }
 
 const persons = [

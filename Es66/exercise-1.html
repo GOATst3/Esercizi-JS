@@ -1,0 +1,26 @@
+<html>
+  <body>
+    <div id="container">
+      <button type="button" id="fetch-post">Fetch Post</button>
+      <ul id="todo-list"></ul>
+    </div>
+  </body>
+</html>
+
+<script>
+  const fetchPost = document.querySelector('#fetch-post')
+  fetchPost.addEventListener("click", async() => {
+    await fetch("https://jsonplaceholder.typicode.com/todos")
+      .then(response => response.json())
+      .then((toDos)=>{
+        for (let i = 0; i < toDos.length; i++) {
+          console.log(toDos[i].title)
+          let ul=document.getElementById("todo-list");
+          let li = document.createElement("li");
+          li.innerHTML=toDos[i].title;
+          ul.appendChild(li);
+        }
+      })
+      .catch((error) => console.log(error));
+  })
+</script>

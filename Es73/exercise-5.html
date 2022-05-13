@@ -1,0 +1,31 @@
+<html>
+  <body>
+    <div id="container">
+      <h2>Person's List</h2>
+      <table id="person-table">
+        <tbody></tbody>
+      </table>
+      <button id="add-row">Add row</button>
+    </div>
+  </body>
+</html>
+
+<script>
+  const addRow=()=>{
+    const newRow=document.createElement("tr")
+    const firstName=document.createElement("input")
+    firstName.type="text"
+    const lastName=document.createElement("input")
+    lastName.type="text"
+    const age=document.createElement("input")
+    age.type="number"
+
+
+    newRow.appendChild(firstName).setAttribute('id','firstName')
+    newRow.appendChild(lastName).setAttribute('id','lastName')
+    newRow.appendChild(age).setAttribute('id','age')
+    document.querySelector('tbody').appendChild(newRow)
+  }
+
+  document.getElementById('add-row').addEventListener('click',()=>addRow())
+</script>

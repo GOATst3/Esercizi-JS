@@ -1,0 +1,25 @@
+<html>
+  <body>
+    <div id="container" style="display: flex; align-items: center;"></div>
+  </body>
+</html>
+
+<script>
+  let h2=document.createElement("h2")
+  let checkbox=document.createElement("input")
+  let container=document.getElementById('container')
+  fetch("https://jsonplaceholder.typicode.com/todos/4")
+    .then(response => response.json())
+    .then(toDos=>{
+      h2.innerText=toDos.title
+      container.appendChild(h2)
+      return toDos
+    })
+    .then(toDos=>{
+      checkbox.type='checkbox'
+      checkbox.checked=toDos.completed
+      container.appendChild(checkbox)
+
+    })
+      .catch((error) => console.log(error));
+</script>

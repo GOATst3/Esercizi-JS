@@ -1,0 +1,40 @@
+<html>
+  <body>
+    <div id="container">
+      <h2>Person's Form</h2>
+      <form id="person-form">
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </body>
+</html>
+
+<script>
+  const form=document.getElementById('person-form')
+  const initForm=()=>{
+    const firstName=document.createElement("input")
+    firstName.type="text"
+    const lastName=document.createElement("input")
+    lastName.type="text"
+    const age=document.createElement("input")
+    age.type="number"
+    form.appendChild(firstName).setAttribute('id','firstName')
+    form.appendChild(firstName).setAttribute('class','formInput')
+    form.appendChild(lastName).setAttribute('id','lastName')
+    form.appendChild(lastName).setAttribute('class','formInput')
+    form.appendChild(age).setAttribute('id','age')
+    form.appendChild(age).setAttribute('class','formInput')
+  }
+  const submitPersonForm=(event)=>{
+    event.preventDefault()
+    const formInput=document.getElementsByClassName("formInput")
+    let person={}
+    for (let i = 0; i < formInput.length; i++) {
+      person[formInput[i].id]=formInput[i].value
+    }
+    console.log(person)
+  }
+
+  document.querySelector('button').addEventListener('click',submitPersonForm)
+  window.addEventListener('load',initForm)
+</script>
